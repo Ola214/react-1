@@ -3,6 +3,7 @@ import Column from './../Column/Column';
 import ColumnForm from './../ColumnForm/ColumnForm';
 import shortid from 'shortid';
 import { useSelector } from 'react-redux';
+import SearchForm from '../SearchForm/SearchForm';
 
 const List = () => {
 
