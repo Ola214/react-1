@@ -1,0 +1,65 @@
+@import '../../styles/settings.scss';
+
+.navbar {
+  background-color: darken($color-dark, 3%);
+  font-size: 24px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  color: white;
+  padding: 10px 0;
+}
+
+/* struktura: rząd z hamburgerem po lewej i linkami po prawej */
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* przycisk hamburger */
+.hamburger {
+  font-size: 26px;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 6px 10px;
+}
+
+/* linki - domyślnie w rzędzie (desktop) */
+.links {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+
+  li {
+    cursor: pointer;
+  }
+}
+
+/* mobile: chowamy .links, pokazujemy gdy data-open="true" */
+@media (max-width: 768px) {
+  .links {
+    margin-top: 30px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 56px; /* dostosuj do wysokości navbaru */
+    display: none;
+    flex-direction: column;
+    background: lighten($color-dark, 10%);
+    padding: 10px 0;
+    text-align: center;
+    gap: 12px;
+    z-index: 999;
+    font-size: 20px;
+  }
+
+  /* prosty selector pokazujący menu gdy atrybut data-open jest true */
+  .links[data-open="true"] {
+    display: flex;
+  }
+}
