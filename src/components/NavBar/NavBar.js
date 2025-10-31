@@ -1,6 +1,7 @@
 import Container from "../Container/Container";
 import styles from './NavBar.module.scss';
 import { useState } from "react";
+import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
     const [open, setOpen] = useState(false);
@@ -18,9 +19,18 @@ const NavBar = () => {
                     <ul className={styles.links}
                         data-open={open ? "true" : "false"}
                     >
-                        <li>Home</li>
-                        <li>Favourite</li>
-                        <li>About</li>
+                        <li>
+                            <NavLink className={({ isActive }) =>
+                                isActive ? styles.linkActive : undefined} to="/">Home</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className={({ isActive }) =>
+                                isActive ? styles.linkActive : undefined} to="/favorite">Favourite</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className={({ isActive }) =>
+                                isActive ? styles.linkActive : undefined} to="/about">About</NavLink>
+                        </li>
                     </ul>
                 </div>
             </Container>

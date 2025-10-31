@@ -8,16 +8,18 @@
   z-index: 1000;
   color: white;
   padding: 10px 0;
+  font-weight: bold;
+
 }
 
-/* struktura: rząd z hamburgerem po lewej i linkami po prawej */
+
 .row {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* przycisk hamburger */
+
 .hamburger {
   font-size: 26px;
   background: none;
@@ -27,7 +29,7 @@
   padding: 6px 10px;
 }
 
-/* linki - domyślnie w rzędzie (desktop) */
+
 .links {
   list-style: none;
   display: flex;
@@ -37,10 +39,15 @@
 
   li {
     cursor: pointer;
+
+    :visited {
+      text-decoration: none !important;
+      color: white;
+    }
   }
 }
 
-/* mobile: chowamy .links, pokazujemy gdy data-open="true" */
+
 @media (max-width: 768px) {
   .links {
     margin-top: 30px;
@@ -58,8 +65,13 @@
     font-size: 20px;
   }
 
-  /* prosty selector pokazujący menu gdy atrybut data-open jest true */
+
   .links[data-open="true"] {
     display: flex;
   }
+}
+
+.linkActive {
+  text-decoration: none !important;
+  color: $color-warning !important;
 }
