@@ -2,14 +2,14 @@
 import Hero from "../Hero/Hero";
 import Container from "../Container/Container";
 import SearchForm from "../SearchForm/SearchForm";
-import List from "../List/List";
+import Lists from "../Lists/Lists";
 
 const Home = () => {
   return (
     <Container>
         <Hero />
         <SearchForm />
-        <List />
+        <Lists />
     </Container>
   );
 };
