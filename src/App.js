@@ -4,7 +4,6 @@ import About from './components/About/About.js';
 import Favourite from './components/Favourite/Favourite.js';
 import Home from './components/Home/Home.js';
 import { Routes, Route } from 'react-router-dom';
-import NotFound from './components/NotFound/NotFound.js';
 import List from './components/List/List.js';
 
 const App = () => {
