@@ -4,16 +4,19 @@ const initialState = {
       id: 1,
       title: 'Books',
       icon: 'book',
+      listId: 1,
     },
     {
       id: 2,
       title: 'Movies',
       icon: 'film',
+      listId: 1,
     },
     {
       id: 3,
       title: 'Games',
       icon: 'gamepad',
+      listId: 2,
     }
   ],
 
@@ -26,7 +29,13 @@ const initialState = {
     { id: 6, columnId: 3, title: 'Skyrim' }
   ],
 
-  searchString: ''
+  searchString: '',
+
+  lists: [
+    { id: 1, title: 'title1', description: 'desc1'},
+    { id: 2, title: 'title2', description: 'desc2'},
+    { id: 3, title: 'title3', description: 'desc3'},
+  ]
 
 };
 
