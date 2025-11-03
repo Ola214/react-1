@@ -1,13 +1,24 @@
-import Container from "../Container/Container";
-import PageTitle from "../PageTitle/PageTitle";
+import { useSelector } from 'react-redux';
+import { getFavoriteCards } from '../../redux/store';
+import Card from '../Card/Card';
+import styles from './Favorite.module.scss';
+import { Navigate } from 'react-router-dom';
 
-const Favourite = () => {
+const Favorite = () => {
+  const favoriteCards = useSelector(getFavoriteCards);
+
+  if (favoriteCards.length === 0) return <Navigate to="/" />;
+
   return (
-    <Container>
-      <PageTitle>Favourite</PageTitle>
-      <p>favourite</p>
-    </Container>
+    <div className={styles.favorite}>
+      <h2>Favorite Cards</h2>
+      <ul className={styles.cards}>
+        {favoriteCards.map(card => (
+          <Card key={card.id} id={card.id} title={card.title} isFavorite={card.isFavorite} />
+        ))}
+      </ul>
+    </div>
   );
 };
 
-export default Favourite;
+export default Favorite;

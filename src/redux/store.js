@@ -23,8 +23,22 @@ export const getColumnsByList = ({ columns }, listId) =>
 
 export const getAllLists = state => state.lists;
 
+// kreator akcji
+export const toggleCardFavorite = cardId => ({ type: 'TOGGLE_CARD_FAVORITE', payload: cardId });
+
+export const getFavoriteCards = ({ cards }) => cards.filter(card => card.isFavorite);
+
 const reducer = (state, action) => {
   switch(action.type) {
+    case 'TOGGLE_CARD_FAVORITE':
+      return {
+        ...state,
+        cards: state.cards.map(card =>
+          card.id === action.payload
+            ? { ...card, isFavorite: !card.isFavorite }
+            : card
+        )
+      };
     case 'ADD_LIST':
       return {
         ...state,

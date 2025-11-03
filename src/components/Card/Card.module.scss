@@ -11,3 +11,20 @@
     justify-content: space-between;
     font-weight: bold;
 }
+
+.card span {
+    color: black;
+}
+
+.favoriteButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 8px;
+  color: gray;
+  font-size: 14px;
+
+  &.active {
+    color: gold;
+  }
+}
