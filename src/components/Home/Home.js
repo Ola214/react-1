@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <Container>
         <Hero />
-        <SearchForm />
+
         <Lists />
     </Container>
   );

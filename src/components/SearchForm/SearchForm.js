@@ -2,23 +2,27 @@ import styles from './SearchForm.module.scss'
 import TextInput from '../TextInput/TextInput';
 import Button from '../Button/Button';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateSearchstring } from '../../redux/store';
 
 const SearchForm = () => {
-  const [search, setSearch] = useState('');
+  const searchString = useSelector(state => state.searchString);
   const dispatch = useDispatch();
 
- const handleSubmit = e => {
+  const handleChange = e => {
+    dispatch(updateSearchstring(e.target.value));
+  };
+
+  const handleSubmit = e => {
     e.preventDefault();
-    dispatch(updateSearchstring(search));
+    // nic nie musimy robić — stan już jest w Reduxie
   };
 
     return (
         <form onSubmit={handleSubmit} className={styles.searchForm}>
             <TextInput placeholder="Search..."
-                value={search}
-                onChange={e => setSearch(e.target.value)}
+                value={searchString}
+                onChange={handleChange}
             />
             <TextInput placeholder="Add new column" />
             <Button>
