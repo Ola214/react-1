@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { getAllLists } from '../../redux/store';
 import { getListById, getColumnsByList } from '../../redux/store';
+import ListForm from '../ListForm/ListForm';
 
 const Lists = () => {
      const lists = useSelector(getAllLists);
@@ -17,6 +18,7 @@ const Lists = () => {
                         <p>{list.description}</p>
                     </Link>
                 ))}
+            <ListForm />
         </section>
     );
 }

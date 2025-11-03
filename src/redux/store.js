@@ -3,6 +3,8 @@ import initialState from './initialState';
 import shortid from 'shortid';
 import { strContains } from '../utils/strContains';
 
+
+export const addList = payload => ({ type: 'ADD_LIST', payload });
 //selectors
 export const getFilteredCards = ({ cards, searchString }, columnId) => cards
   .filter(card => card.columnId === columnId && strContains(card.title, searchString));
@@ -23,6 +25,17 @@ export const getAllLists = state => state.lists;
 
 const reducer = (state, action) => {
   switch(action.type) {
+    case 'ADD_LIST':
+      return {
+        ...state,
+        lists: [
+          ...state.lists,
+          {
+            ...action.payload,
+            id: shortid()
+          }
+        ]
+    };
     case 'ADD_COLUMN':
       return {
        ...state,
